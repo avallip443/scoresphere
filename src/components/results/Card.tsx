@@ -1,7 +1,7 @@
 import React from "react";
 
 interface CardProps {
-    itemLabel: string
+  itemLabel: string;
 }
 
 const Card: React.FC<CardProps> = ({ itemLabel }) => {

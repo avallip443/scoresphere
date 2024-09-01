@@ -1,5 +1,5 @@
 import React from "react";
-import StatsTable from "../components/Stats/StatsTable";
+import StatsTable from "../components/stats/StatsTable";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 
