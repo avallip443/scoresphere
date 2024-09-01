@@ -10,7 +10,7 @@ const SearchTabs: React.FC<SearchTabsProps> = ({ activeTab, setActiveTab }) => {
   const tabs = ["Player", "Position", "Club", "Country"];
 
   return (
-    <div className="w-1/2 flex">
+    <div className="w-4/5 md:w-2/3 lg:w-1/2 flex">
       {tabs.map((tab) => (
         <div
           key={tab}

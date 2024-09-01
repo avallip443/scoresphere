@@ -8,7 +8,7 @@ const SearchBar: React.FC = () => {
   };
 
   return (
-    <div className="w-1/2 flex items-center border border-gray-300 rounded-bl-lg rounded-br-lg overflow-hidden shadow-sm">
+    <div className="w-4/5 md:w-2/3 lg:w-1/2 flex items-center border border-gray-300 rounded-bl-lg rounded-br-lg overflow-hidden shadow-sm">
       <input
         type="text"
         value={query}
