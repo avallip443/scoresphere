@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Bars3BottomRightIcon } from "@heroicons/react/24/outline";
 
 interface PlayerStats {
   name: string;
@@ -16,7 +15,7 @@ interface PlayerStats {
 
 const data: PlayerStats[] = [
   {
-    name: "A PLAYER NAME",
+    name: "APLAYERNAME",
     nation: "SPAIN",
     team: "FC BARCELONA",
     position: "Forward",
@@ -106,132 +105,71 @@ const StatsTable: React.FC = () => {
     setSortedData(sorted);
     setSortOrder(newSortOrder);
   };
+ 
 
   return (
-    <table className="w-11/12 mt-3 border-collapse border border-gray-300">
-      <thead>
-        <tr className="bg-primary text-[#ffffff]">
-          <th
-            className="border-r border-gray-300 p-2 cursor-pointer"
-            onClick={() => sortByString("name")}
-          >
-            <div className="flex justify-between items-center">
-              <p className="flex-grow text-center ml-5">Name</p>
-              <Bars3BottomRightIcon className="h-5 w-5" />
-            </div>
-          </th>
-          <th
-            className="p-2 cursor-pointer"
-            onClick={() => sortByString("nation")}
-          >
-            <div className="flex justify-between items-center">
-              <p className="flex-grow text-center ml-5">Nation</p>
-              <Bars3BottomRightIcon className="h-5 w-5" />
-            </div>
-          </th>
-          <th
-            className="p-2 cursor-pointer"
-            onClick={() => sortByString("team")}
-          >
-            <div className="flex justify-between items-center">
-              <p className="flex-grow text-center ml-5">Team</p>
-              <Bars3BottomRightIcon className="h-5 w-5" />
-            </div>
-          </th>
-          <th
-            className="p-2 cursor-pointer"
-            onClick={() => sortByString("position")}
-          >
-            <div className="flex justify-between items-center">
-              <p className="flex-grow text-center ml-5">Position</p>
-              <Bars3BottomRightIcon className="h-5 w-5" />
-            </div>
-          </th>
-          <th
-            className="border-r border-gray-300 p-2 cursor-pointer"
-            onClick={() => sortByNumber("age")}
-          >
-            <div className="flex justify-between items-center">
-              <p className="flex-grow text-center ml-5">Age</p>
-              <Bars3BottomRightIcon className="h-5 w-5" />
-            </div>
-          </th>
-          <th
-            className="p-2 cursor-pointer"
-            onClick={() => sortByNumber("matchesPlayed")}
-          >
-            <div className="flex justify-between items-center">
-              <p className="flex-grow text-center ml-5">Matches Played</p>
-              <Bars3BottomRightIcon className="h-5 w-5" />
-            </div>
-          </th>
-          <th
-            className="p-2 cursor-pointer"
-            onClick={() => sortByNumber("goals")}
-          >
-            <div className="flex justify-between items-center">
-              <p className="flex-grow text-center ml-5">Goals</p>
-              <Bars3BottomRightIcon className="h-5 w-5" />
-            </div>
-          </th>
-          <th
-            className="p-2 cursor-pointer"
-            onClick={() => sortByNumber("assists")}
-          >
-            <div className="flex justify-between items-center">
-              <p className="flex-grow text-center ml-5">Assists</p>
-              <Bars3BottomRightIcon className="h-5 w-5" />
-            </div>
-          </th>
-          <th
-            className="border-r border-gray-300 p-2 cursor-pointer"
-            onClick={sortByGoalsPerMatch}
-          >
-            <div className="flex justify-between items-center">
-              <p className="flex-grow text-center ml-5">Goals Per Match</p>
-              <Bars3BottomRightIcon className="h-5 w-5" />
-            </div>
-          </th>
-          <th
-            className="p-2 cursor-pointer"
-            onClick={() => sortByNumber("yellowCards")}
-          >
-            <div className="flex justify-between items-center">
-              <p className="flex-grow text-center ml-5">Yellow Cards</p>
-              <Bars3BottomRightIcon className="h-5 w-5" />
-            </div>
-          </th>
-          <th
-            className="p-2 cursor-pointer"
-            onClick={() => sortByNumber("redCards")}
-          >
-            <div className="flex justify-between items-center">
-              <p className="flex-grow text-center ml-5">Red Cards</p>
-              <Bars3BottomRightIcon className="h-5 w-5" />
-            </div>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {sortedData.map((player, index) => (
-          <tr key={index} className="even:bg-gray-200 text-center">
-            <td className="border-r border-gray-300 p-2">{player.name}</td>
-            <td className="p-2">{player.nation}</td>
-            <td className="p-2">{player.team}</td>
-            <td className="p-2">{player.position}</td>
-            <td className="border-r border-gray-300 p-2">{player.age}</td>
-            <td className="p-2">{player.matchesPlayed}</td>
-            <td className="p-2">{player.goals}</td>
-            <td className="p-2">{player.assists}</td>
-            <td className="border-r border-gray-300 p-2">
-              {Math.round((player.goals / player.matchesPlayed) * 100) / 100}
-            </td>
-            <td className="p-2">{player.yellowCards}</td>
-            <td className="p-2">{player.redCards}</td>
+    <div className="w-11/12 overflow-x-auto">
+      <table className="w-full mt-3 table-auto border-collapse border border-gray-300">
+        <thead>
+          <tr className="bg-primary text-[#ffffff] text-center text-sm cursor-pointer">
+            <th
+              className="border-r border-gray-300 sticky left-0 h-fit bg-primary py-2"
+              onClick={() => sortByString("name")}
+            >
+              Player
+            </th>
+            <th onClick={() => sortByString("nation")}>Nation</th>
+            <th onClick={() => sortByString("team")}>Team</th>
+            <th onClick={() => sortByString("position")}>Pos</th>
+            <th
+              className="border-r border-gray-300"
+              onClick={() => sortByNumber("age")}
+            >
+              Age
+            </th>
+            <th onClick={() => sortByNumber("matchesPlayed")}>
+              MP
+            </th>
+            <th onClick={() => sortByNumber("goals")}>Gls</th>
+            <th onClick={() => sortByNumber("assists")}>Ast</th>
+            <th
+              className="border-r border-gray-300"
+              onClick={sortByGoalsPerMatch}
+            >
+              GPM
+            </th>
+            <th onClick={() => sortByNumber("yellowCards")}>YCrds</th>
+            <th onClick={() => sortByNumber("redCards")}>Rcrds</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+
+        <tbody>
+          {sortedData.map((player, index) => (
+            <tr key={index} className="even:bg-gray-200 text-center ">
+              <td
+                className={`left-0 sticky ${
+                  index % 2 === 0 ? "bg-[#ffffff]" : "bg-gray-200"
+                }`}
+              >
+                {player.name}
+              </td>
+              <td>{player.nation}</td>
+              <td>{player.team}</td>
+              <td>{player.position}</td>
+              <td>{player.age}</td>
+              <td>{player.matchesPlayed}</td>
+              <td>{player.goals}</td>
+              <td>{player.assists}</td>
+              <td>
+                {Math.round((player.goals / player.matchesPlayed) * 100) / 100}
+              </td>
+              <td>{player.yellowCards}</td>
+              <td>{player.redCards}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
