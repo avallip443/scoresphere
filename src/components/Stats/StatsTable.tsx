@@ -105,7 +105,6 @@ const StatsTable: React.FC = () => {
     setSortedData(sorted);
     setSortOrder(newSortOrder);
   };
- 
 
   return (
     <div className="w-11/12 overflow-x-auto">
@@ -120,7 +119,11 @@ const StatsTable: React.FC = () => {
             </th>
             <th onClick={() => sortByString("nation")}>Nation</th>
             <th onClick={() => sortByString("team")}>Team</th>
-            <th onClick={() => sortByString("position")}>Pos</th>
+            <th onClick={() => sortByString("position")}>
+              <dfn style={{ fontStyle: "normal" }} title="Position">
+                Pos
+              </dfn>
+            </th>
             <th
               className="border-r border-gray-300"
               onClick={() => sortByNumber("age")}
@@ -128,18 +131,38 @@ const StatsTable: React.FC = () => {
               Age
             </th>
             <th onClick={() => sortByNumber("matchesPlayed")}>
-              MP
+              <dfn style={{ fontStyle: "normal" }} title="Matches played">
+                MP
+              </dfn>
             </th>
-            <th onClick={() => sortByNumber("goals")}>Gls</th>
-            <th onClick={() => sortByNumber("assists")}>Ast</th>
+            <th onClick={() => sortByNumber("goals")}>
+              <dfn style={{ fontStyle: "normal" }} title="Goals">
+                Gls
+              </dfn>
+            </th>
+            <th onClick={() => sortByNumber("assists")}>
+              <dfn style={{ fontStyle: "normal" }} title="Assists">
+                Ast
+              </dfn>
+            </th>
             <th
               className="border-r border-gray-300"
               onClick={sortByGoalsPerMatch}
             >
-              GPM
+              <dfn style={{ fontStyle: "normal" }} title="Goals per match">
+                GPM
+              </dfn>
             </th>
-            <th onClick={() => sortByNumber("yellowCards")}>YCrds</th>
-            <th onClick={() => sortByNumber("redCards")}>Rcrds</th>
+            <th onClick={() => sortByNumber("yellowCards")}>
+              <dfn style={{ fontStyle: "normal" }} title="Yellow cards">
+                YCrds
+              </dfn>
+            </th>
+            <th onClick={() => sortByNumber("redCards")}>
+              <dfn style={{ fontStyle: "normal" }} title="Red cards">
+                RCrds
+              </dfn>
+            </th>
           </tr>
         </thead>
 
