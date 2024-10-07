@@ -10,7 +10,7 @@ interface ResultsProps {
 }
 
 const Results: React.FC<ResultsProps> = ({ activeTab }) => {
-  let data: { id: number; name: string; image: string }[] = [];
+  let data: { id: number; name: string; image?: string; code?: string }[] = [];
   let isTeamData = false;
   let isCountryData = false;
 

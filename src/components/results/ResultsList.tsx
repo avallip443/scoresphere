@@ -5,7 +5,7 @@ interface ResultsListProps {
   data: {
     id: number;
     name: string;
-    image: string; // in case PositionData doesn't have img
+    image?: string; // in case PositionData doesn't have img
     code?: string;
   }[];
   isTeamData: boolean;
@@ -26,7 +26,7 @@ const ResultsList: React.FC<ResultsListProps> = ({
           image={
             isCountryData
               ? `https://flagcdn.com/w320/${item.code?.toLowerCase()}.png`
-              : item.image
+              : item.image || "https://via.placeholder.com/150" // Fallback to placeholder if image is undefined
           }
           backgroundSize={isTeamData ? "contain" : "cover"}
         />
