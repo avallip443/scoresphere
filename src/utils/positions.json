@@ -1,0 +1,22 @@
+[ 
+    {
+        "id": 1,
+        "name": "Defender",
+        "image": "/positions/defender.jpeg"
+    },
+    {
+        "id": 2,
+        "name": "Forward",
+        "image": "/positions/forward.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Goalie",
+        "image": "/positions/goalie.jpeg"
+    },
+    {
+        "id": 4,
+        "name": "Midfielder",
+        "image": "/positions/midfielder.jpg"
+    }
+]

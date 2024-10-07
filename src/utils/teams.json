@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "name": "Alavés",
+        "image": "/teams/Alavés.png"
+    },
+    {
+        "id": 2,
+        "name": "Athletic Club",
+        "image": "/teams/Athletic-Club.png"
+    },
+    {
+        "id": 3,
+        "name": "Atlético Madrid",
+        "image": "/teams/Atlético-Madrid.png"
+    },
+    {
+        "id": 4,
+        "name": "Barcelona",
+        "image": "/teams/Barcelona.png"
+    },
+    {
+        "id": 5,
+        "name": "Betis",
+        "image": "/teams/Betis.png"
+    },
+    {
+        "id": 6,
+        "name": "Celta Vigo",
+        "image": "/teams/Celta-Vigo.png"
+    },
+    {
+        "id": 7,
+        "name": "Espanyol",
+        "image": "/teams/Espanyol.png"
+    },
+    {
+        "id": 8,
+        "name": "Getafe",
+        "image": "/teams/Getafe.png"
+    },
+    {
+        "id": 9,
+        "name": "Girona",
+        "image": "/teams/Girona.png"
+    },
+    {
+        "id": 10,
+        "name": "Las Palmas",
+        "image": "/teams/Las-Palmas.png"
+    },
+    {
+        "id": 11,
+        "name": "Leganés",
+        "image": "/teams/Leganés.png"
+    },
+    {
+        "id": 12,
+        "name": "Mallorca",
+        "image": "/teams/Mallorca.png"
+    },
+    {
+        "id": 13,
+        "name": "Osasuna",
+        "image": "/teams/Osasuna.png"
+    },
+    {
+        "id": 14,
+        "name": "Rayo Vallecano",
+        "image": "/teams/Rayo-Vallecano.png"
+    },
+    {
+        "id": 15,
+        "name": "Real Madrid",
+        "image": "/teams/Real-Madrid.png"
+    },
+    {
+        "id": 16,
+        "name": "Real Sociedad",
+        "image": "/teams/Real-Sociedad.png"
+    },
+    {
+        "id": 17,
+        "name": "Sevilla",
+        "image": "/teams/Sevilla.png"
+    },
+    {
+        "id": 18,
+        "name": "Valencia",
+        "image": "/teams/Valencia.png"
+    },
+    {
+        "id": 19,
+        "name": "Valladolid",
+        "image": "/teams/Valladolid.png"
+    },
+    {
+        "id": 20,
+        "name": "Villarreal",
+        "image": "/teams/Villarreal.png"
+    }
+]
