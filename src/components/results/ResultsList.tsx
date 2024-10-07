@@ -25,7 +25,7 @@ const ResultsList: React.FC<ResultsListProps> = ({
           name={item.name}
           image={
             isCountryData
-              ? `https://flagcdn.com/w320/${item.code.toLowerCase()}.png`
+              ? `https://flagcdn.com/w320/${item.code?.toLowerCase()}.png`
               : item.image
           }
           backgroundSize={isTeamData ? "contain" : "cover"}
