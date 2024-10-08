@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import NationData from "../../utils/nations.json";
 
 
 interface PlayerStats {
@@ -15,8 +16,11 @@ interface PlayerStats {
   redCards: number;
 }
 
+interface StatsTableProps {
+  players?: PlayerStats[];
+}
 
-const StatsTable: React.FC = () => {
+const StatsTable: React.FC<StatsTableProps> = ({ players }) => {
   const [sortedData, setSortedData] = useState<PlayerStats[]>([]);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
 
@@ -30,9 +34,12 @@ const StatsTable: React.FC = () => {
       }
     };
 
-
-    fetchPlayers();
-  })
+    if (players && players.length > 0) {
+      setSortedData(players);
+    } else {
+      fetchPlayers();
+    }
+  }, [players]);
 
   const sortByString = (key: keyof PlayerStats) => {
     const newSortOrder = sortOrder === "asc" ? "desc" : "asc";
@@ -84,7 +91,11 @@ const StatsTable: React.FC = () => {
     setSortOrder(newSortOrder);
   };
 
-  
+  const getNationByCode = (code: string) => {
+    const country = NationData.find((country) => country.code === code);
+    return country ? country.name : null;
+  };
+
   return (
     <div className="w-11/12 overflow-x-auto">
       <table className="w-full mt-3 table-auto border-collapse border border-gray-300">
@@ -155,15 +166,20 @@ const StatsTable: React.FC = () => {
               >
                 {player.name}
               </td>
-              <td>{player.nation}</td>
-              <td>{player.team}</td>
+              <td>
+                {getNationByCode(player.nation?.toUpperCase()) || "Unknown"}
+              </td>
+              <td>{player.team.replace(/-/g, " ")}</td>
               <td>{player.position}</td>
               <td>{player.age}</td>
               <td>{player.matchesPlayed}</td>
               <td>{player.goals}</td>
               <td>{player.assists}</td>
               <td>
-                {Math.round((player.goals / player.matchesPlayed) * 100) / 100}
+                {player.matchesPlayed > 0
+                  ? Math.round((player.goals / player.matchesPlayed) * 100) /
+                    100
+                  : 0}
               </td>
               <td>{player.yellowCards}</td>
               <td>{player.redCards}</td>

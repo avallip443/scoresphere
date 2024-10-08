@@ -9,9 +9,8 @@ const PositionStats: React.FC = () => {
 
   const getCodeByName = (name: string) => {
     const country = NationData.find((country) => country.name === name);
-    return country ? country.code : null; // Return code or null if not found
+    return country ? country.code : null; // return code or null if not found
   };
-
 
   useEffect(() => {
     const fetchPlayers = async () => {
