@@ -18,8 +18,6 @@ const Card: React.FC<CardProps> = ({
 
   const handleClick = () => {
     const encodedName = encodeURIComponent(name);
-    console.log("clicked");
-
 
     switch (dataType) {
       case "Position":

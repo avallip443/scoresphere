@@ -17,7 +17,6 @@ const ResultsList: React.FC<ResultsListProps> = ({
 }) => {
   const isNationData = dataType == "Nation";
   const isTeamData = dataType == "Club";
-  console.log(dataType, isTeamData);
 
   return (
     <div className="w-11/12 flex flex-wrap items-center justify-center gap-x-4 gap-y-4 mt-4">
