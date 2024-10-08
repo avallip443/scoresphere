@@ -15,8 +15,9 @@ const ResultsList: React.FC<ResultsListProps> = ({
   data,
   dataType,
 }) => {
-  const isNationData = dataType == "nation";
-  const isTeamData = dataType == "team";
+  const isNationData = dataType == "Nation";
+  const isTeamData = dataType == "Club";
+  console.log(dataType, isTeamData);
 
   return (
     <div className="w-11/12 flex flex-wrap items-center justify-center gap-x-4 gap-y-4 mt-4">
@@ -27,9 +28,10 @@ const ResultsList: React.FC<ResultsListProps> = ({
           image={
             isNationData
               ? `https://flagcdn.com/w320/${item.code?.toLowerCase()}.png`
-              : item.image || "https://via.placeholder.com/150" // Fallback to placeholder if image is undefined
+              : item.image || "https://via.placeholder.com/150" // fallback to placeholder if image is undefined
           }
           backgroundSize={isTeamData ? "contain" : "cover"}
+          dataType={dataType}
         />
       ))}
     </div>
