@@ -8,15 +8,16 @@ interface ResultsListProps {
     image?: string; // in case PositionData doesn't have img
     code?: string;
   }[];
-  isTeamData: boolean;
-  isCountryData: boolean;
+  dataType: string;
 }
 
 const ResultsList: React.FC<ResultsListProps> = ({
   data,
-  isTeamData,
-  isCountryData,
+  dataType,
 }) => {
+  const isNationData = dataType == "nation";
+  const isTeamData = dataType == "team";
+
   return (
     <div className="w-11/12 flex flex-wrap items-center justify-center gap-x-4 gap-y-4 mt-4">
       {data.map((item) => (
@@ -24,7 +25,7 @@ const ResultsList: React.FC<ResultsListProps> = ({
           key={item.id}
           name={item.name}
           image={
-            isCountryData
+            isNationData
               ? `https://flagcdn.com/w320/${item.code?.toLowerCase()}.png`
               : item.image || "https://via.placeholder.com/150" // Fallback to placeholder if image is undefined
           }

@@ -3,7 +3,7 @@ import ResultsList from "./ResultsList";
 import StatsTable from "../stats/StatsTable";
 import TeamData from "../../utils/teams.json";
 import PositionData from '../../utils/positions.json'
-import CountryData from '../../utils/countries.json'
+import NationData from '../../utils/nations.json'
 
 interface ResultsProps {
   activeTab: string;
@@ -11,21 +11,18 @@ interface ResultsProps {
 
 const Results: React.FC<ResultsProps> = ({ activeTab }) => {
   let data: { id: number; name: string; image?: string; code?: string }[] = [];
-  let isTeamData = false;
-  let isCountryData = false;
+  const dataType = activeTab;
 
   switch (activeTab) {
     case "Player":
     case "Club":
       data = TeamData;
-      isTeamData = true;
       break;
     case "Position":
       data = PositionData;
       break;
-    case "Country":
-      data = CountryData;
-      isCountryData = true;
+    case "Nation":
+      data = NationData
       break;
     default:
       data = [];
@@ -40,8 +37,7 @@ const Results: React.FC<ResultsProps> = ({ activeTab }) => {
       ) : (
         <ResultsList
           data={data}
-          isTeamData={isTeamData}
-          isCountryData={isCountryData}
+          dataType={dataType}
         />
       )}
     </div>

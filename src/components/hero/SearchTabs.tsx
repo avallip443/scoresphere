@@ -7,7 +7,7 @@ interface SearchTabsProps {
 
 const SearchTabs: React.FC<SearchTabsProps> = ({ activeTab, setActiveTab }) => {
   //const [activeTab, setActiveTab] = useState<string>("Player");
-  const tabs = ["Player", "Position", "Club", "Country"];
+  const tabs = ["Player", "Position", "Club", "Nation"];
 
   return (
     <div className="w-4/5 md:w-2/3 lg:w-1/2 flex">
