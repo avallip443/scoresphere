@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound";
 
 import "./styles/tailwind.css";
 import Stats from "./pages/Stats";
+import PositionStats from "./components/stats/PositionStats";
 
 const App: React.FC = () => {
   return (
@@ -37,6 +38,10 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/stats" element={<Stats />} />
+            <Route
+              path="/position/:position"
+              element={<PositionStats />}
+            />
           </Routes>
         </main>
 

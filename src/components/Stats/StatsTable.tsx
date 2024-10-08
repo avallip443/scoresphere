@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
 
 interface PlayerStats {
   name: string;
@@ -13,48 +15,24 @@ interface PlayerStats {
   redCards: number;
 }
 
-const data: PlayerStats[] = [
-  {
-    name: "APLAYERNAME",
-    nation: "SPAIN",
-    team: "FC BARCELONA",
-    position: "Forward",
-    age: 25,
-    matchesPlayed: 20,
-    goals: 10,
-    assists: 5,
-    yellowCards: 3,
-    redCards: 1,
-  },
-  {
-    name: "C PLAYER NAME",
-    nation: "FRANCE",
-    team: "SEVILLA",
-    position: "Midfielder",
-    age: 20,
-    matchesPlayed: 10,
-    goals: 20,
-    assists: 2,
-    yellowCards: 2,
-    redCards: 2,
-  },
-  {
-    name: "B PLAYER NAME",
-    nation: "BRAZIL",
-    team: "REAL MADRID",
-    position: "Defender",
-    age: 26,
-    matchesPlayed: 15,
-    goals: 2,
-    assists: 1,
-    yellowCards: 1,
-    redCards: 3,
-  },
-];
 
 const StatsTable: React.FC = () => {
-  const [sortedData, setSortedData] = useState<PlayerStats[]>(data);
+  const [sortedData, setSortedData] = useState<PlayerStats[]>([]);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
+
+  useEffect(() => {
+    const fetchPlayers = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/api/player");
+        setSortedData(response.data);
+      } catch (error) {
+        console.error("Error fetching player data:", error);
+      }
+    };
+
+
+    fetchPlayers();
+  })
 
   const sortByString = (key: keyof PlayerStats) => {
     const newSortOrder = sortOrder === "asc" ? "desc" : "asc";
@@ -106,6 +84,7 @@ const StatsTable: React.FC = () => {
     setSortOrder(newSortOrder);
   };
 
+  
   return (
     <div className="w-11/12 overflow-x-auto">
       <table className="w-full mt-3 table-auto border-collapse border border-gray-300">
