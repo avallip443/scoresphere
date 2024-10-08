@@ -2,21 +2,25 @@
     {
         "id": 1,
         "name": "Defender",
-        "image": "/positions/defender.jpeg"
+        "image": "/positions/defender.jpeg",
+        "code": "DF"
     },
     {
         "id": 2,
         "name": "Forward",
-        "image": "/positions/forward.jpg"
+        "image": "/positions/forward.jpg",
+        "code": "FW"
     },
     {
         "id": 3,
         "name": "Goalie",
-        "image": "/positions/goalie.jpeg"
+        "image": "/positions/goalie.jpeg",
+        "code": "GK"
     },
     {
         "id": 4,
         "name": "Midfielder",
-        "image": "/positions/midfielder.jpg"
+        "image": "/positions/midfielder.jpg",
+        "code": "MF"
     }
 ]
