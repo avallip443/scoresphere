@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import NationData from "../../utils/nations.json";
 
-
 interface PlayerStats {
   name: string;
   nation: string;
@@ -18,9 +17,10 @@ interface PlayerStats {
 
 interface StatsTableProps {
   players?: PlayerStats[];
+  query?: string;
 }
 
-const StatsTable: React.FC<StatsTableProps> = ({ players }) => {
+const StatsTable: React.FC<StatsTableProps> = ({ players, query }) => {
   const [sortedData, setSortedData] = useState<PlayerStats[]>([]);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
 
@@ -96,6 +96,13 @@ const StatsTable: React.FC<StatsTableProps> = ({ players }) => {
     return country ? country.name : null;
   };
 
+  const filteredData = query
+    ? sortedData.filter((player) =>
+        player.name.toLowerCase().includes(query.toLowerCase())
+      )
+    : sortedData;
+
+
   return (
     <div className="w-11/12 overflow-x-auto">
       <table className="w-full mt-3 table-auto border-collapse border border-gray-300">
@@ -157,7 +164,7 @@ const StatsTable: React.FC<StatsTableProps> = ({ players }) => {
         </thead>
 
         <tbody>
-          {sortedData.map((player, index) => (
+          {filteredData.map((player, index) => (
             <tr key={index} className="even:bg-gray-200 text-center ">
               <td
                 className={`left-0 sticky ${
