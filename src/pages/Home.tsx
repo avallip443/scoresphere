@@ -4,11 +4,12 @@ import Results from "../components/results/Results";
 
 const Home: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("Player");
+  const [query, setQuery] = useState<string>("");
 
   return (
     <>
-      <Hero activeTab={activeTab} setActiveTab={setActiveTab} />
-      <Results activeTab={activeTab} />
+      <Hero activeTab={activeTab} setActiveTab={setActiveTab} query={query} setQuery={setQuery} />
+      <Results activeTab={activeTab} query={query} />
     </>
   );
 };

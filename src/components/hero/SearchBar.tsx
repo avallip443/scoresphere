@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
-const SearchBar: React.FC = () => {
-  const [query, setQuery] = useState<string>("");
+interface SearchBarProps {
+  query: string;
+  setQuery: (query: string) => void;
+}
 
+const SearchBar: React.FC<SearchBarProps> = ({ query, setQuery }) => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
   };

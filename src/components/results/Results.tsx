@@ -7,9 +7,10 @@ import NationData from '../../utils/nations.json'
 
 interface ResultsProps {
   activeTab: string;
+  query: string;
 }
 
-const Results: React.FC<ResultsProps> = ({ activeTab }) => {
+const Results: React.FC<ResultsProps> = ({ activeTab, query }) => {
   let data: { id: number; name: string; image?: string; code?: string }[] = [];
   const dataType = activeTab;
 
@@ -33,11 +34,12 @@ const Results: React.FC<ResultsProps> = ({ activeTab }) => {
     <div className="w-full flex flex-col items-center justify-center mb-6">
       <h1 className="text-2xl mt-6 text-secondary">Results</h1>
       {activeTab === "Player" ? (
-        <StatsTable />
+        <StatsTable query={query} />
       ) : (
         <ResultsList
           data={data}
           dataType={dataType}
+          query={query}
         />
       )}
     </div>
