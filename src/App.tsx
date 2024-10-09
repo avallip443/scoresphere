@@ -6,7 +6,6 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
 import "./styles/tailwind.css";
-import Stats from "./pages/Stats";
 import PositionStats from "./components/stats/PositionStats";
 import ClubStats from "./components/stats/ClubStats";
 import NationStats from "./components/stats/NationStats";
@@ -40,7 +39,6 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
-            <Route path="/stats" element={<Stats />} />
             <Route path="/position/:name" element={<PositionStats />} />
             <Route path="/club/:name" element={<ClubStats />} />
             <Route path="/nation/:name" element={<NationStats />} />
