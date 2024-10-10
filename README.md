@@ -15,6 +15,7 @@ ScoreSphere is a web application that allows users to easily find and compare pl
 ![image](https://github.com/user-attachments/assets/daa990a6-8e99-4895-8ad0-24fea53e0c85)
 ![image](https://github.com/user-attachments/assets/a1bd8090-c751-483d-923f-67f2fac88034)
 ![image](https://github.com/user-attachments/assets/d17a3370-9778-4887-bab0-c0745c44f394)
+![image](https://github.com/user-attachments/assets/ca5c3855-0769-4973-933c-00343d52c30d)
 
 
 
