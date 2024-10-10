@@ -33,7 +33,7 @@ This application also features:
 
 
 
-- ## Dependencies 
+## Dependencies 
 
 The following dependencies are used:
 - PostgreSQL
