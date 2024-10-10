@@ -8,11 +8,11 @@ interface PlayerStats {
   team: string;
   position: string;
   age: number;
-  matchesPlayed: number;
+  matchesplayed: number;
   goals: number;
   assists: number;
-  yellowCards: number;
-  redCards: number;
+  yellowcards: number;
+  redcards: number;
 }
 
 interface StatsTableProps {
@@ -77,9 +77,9 @@ const StatsTable: React.FC<StatsTableProps> = ({ players, query }) => {
     const newSortOrder = sortOrder === "asc" ? "desc" : "asc";
     const sorted = [...sortedData].sort((a, b) => {
       const aGoalsPerMatch =
-        a.matchesPlayed > 0 ? a.goals / a.matchesPlayed : 0;
+        a.matchesplayed > 0 ? a.goals / a.matchesplayed : 0;
       const bGoalsPerMatch =
-        b.matchesPlayed > 0 ? b.goals / b.matchesPlayed : 0;
+        b.matchesplayed > 0 ? b.goals / b.matchesplayed : 0;
 
       if (newSortOrder === "asc") {
         return aGoalsPerMatch - bGoalsPerMatch;
@@ -127,7 +127,7 @@ const StatsTable: React.FC<StatsTableProps> = ({ players, query }) => {
             >
               Age
             </th>
-            <th onClick={() => sortByNumber("matchesPlayed")}>
+            <th onClick={() => sortByNumber("matchesplayed")}>
               <dfn style={{ fontStyle: "normal" }} title="Matches played">
                 MP
               </dfn>
@@ -150,12 +150,12 @@ const StatsTable: React.FC<StatsTableProps> = ({ players, query }) => {
                 GPM
               </dfn>
             </th>
-            <th onClick={() => sortByNumber("yellowCards")}>
+            <th onClick={() => sortByNumber("yellowcards")}>
               <dfn style={{ fontStyle: "normal" }} title="Yellow cards">
                 YCrds
               </dfn>
             </th>
-            <th onClick={() => sortByNumber("redCards")}>
+            <th onClick={() => sortByNumber("redcards")}>
               <dfn style={{ fontStyle: "normal" }} title="Red cards">
                 RCrds
               </dfn>
@@ -179,17 +179,17 @@ const StatsTable: React.FC<StatsTableProps> = ({ players, query }) => {
               <td>{player.team.replace(/-/g, " ")}</td>
               <td>{player.position}</td>
               <td>{player.age}</td>
-              <td>{player.matchesPlayed}</td>
+              <td>{player.matchesplayed}</td>
               <td>{player.goals}</td>
               <td>{player.assists}</td>
               <td>
-                {player.matchesPlayed > 0
-                  ? Math.round((player.goals / player.matchesPlayed) * 100) /
+                {player.matchesplayed > 0
+                  ? Math.round((player.goals / player.matchesplayed) * 100) /
                     100
                   : 0}
               </td>
-              <td>{player.yellowCards}</td>
-              <td>{player.redCards}</td>
+              <td>{player.yellowcards}</td>
+              <td>{player.redcards}</td>
             </tr>
           ))}
         </tbody>
